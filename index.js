@@ -1,5 +1,4 @@
 // 2
-// Напиши функцію countProps(obj), яка рахує кількість властивостей в об'єкті. Функція повертає число — кількість властивостей.
 function countProps(obj) {
     return Object.keys(obj).length;
 }
@@ -10,12 +9,39 @@ const car = {
     model: 'MLS 520'
 }
 
-console.log(countProps(car));
+const {color, brand, model} = car;
+
+const allProps = countProps(color, brand, model);
+
+console.log(allProps)
 
 // 2
 
 // 3
+function findBestEmployee(team) {
+    let bestEmployee = "";
+    let maxTasks = 0;
 
+    for (const [name, tasks] of Object.entries(team)) {
+        if (tasks > maxTasks) {
+            bestEmployee = name;
+            maxTasks = tasks;
+        }
+    }
+
+    return bestEmployee;
+}
+
+const team = {
+    John: 25,
+    Sarah: 15,
+    Mike: 35,
+    Emma: 20
+};
+
+const { John, Sarah, Mike, Emma } = team;
+
+console.log(findBestEmployee(team));
 // 3
 
 // 4
@@ -35,10 +61,11 @@ const employees = {
     Charlie: 2000
 };
 
-console.log(findBestEmployee(employees));
-console.log(countTotalSalary(employees));
+const {Alice, Bob, Charlie} = employees;
 
+const theTotalSalary = countTotalSalary(employees);
 
+console.log(theTotalSalary)
 // 4
 
 // 5
@@ -54,22 +81,27 @@ function getAllPropValues(arr, prop) {
     return values;
 }
 
-const products = [
+const things = [
     { name: "Laptop", price: 1500, quantity: 4 },
     { name: "Phone", price: 800, quantity: 10 },
     { name: "Tablet", price: 600, quantity: 6 }
 ];
 
-console.log(getAllPropValues(products, "name"));
-console.log(getAllPropValues(products, "price"));
+const propertyValues = [
+    getAllPropValues(things, "name"),
+    getAllPropValues(things, "price"),
+    getAllPropValues(things, "quantity")
+];
+
+console.log(propertyValues);
 // 5
 
 // 6
 function calculateTotalPrice(allProducts, productName) {
     for (const product of allProducts) {
-        if (product.name === productName) {
+        if (product.newName === productName) {
             return {
-                totalPrice: product.price * product.quantity,
+                totalPrice: product.newPrice * product.quantity,
                 quantity: product.quantity
             };
         }
@@ -78,14 +110,21 @@ function calculateTotalPrice(allProducts, productName) {
     return { totalPrice: 0, quantity: 0 };
 }
 
-
 const products = [
-    { name: "Laptop", price: 1500, quantity: 4 },
-    { name: "Phone", price: 800, quantity: 10 },
-    { name: "Tablet", price: 600, quantity: 6 }
+    { newName: "Laptop", newPrice: 1500, quantity: 4 },
+    { newName: "Phone", newPrice: 800, quantity: 10 },
+    { newName: "Tablet", newPrice: 600, quantity: 6 }
 ];
 
-console.log(calculateTotalPrice(products, "Laptop"));
-console.log(calculateTotalPrice(products, "Phone"));
-console.log(calculateTotalPrice(products, "Tablet"));
+const results = [
+    calculateTotalPrice(products, "Laptop"),
+    calculateTotalPrice(products, "Phone"),
+    calculateTotalPrice(products, "Tablet")
+];
+
+console.log(results);
 // 6
+
+// 7
+
+// 7
