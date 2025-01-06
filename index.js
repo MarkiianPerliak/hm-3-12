@@ -7,7 +7,9 @@ user.mood = "happy";
 user.hobby = "skydiving";
 user.premium = false;
 
-
+Object.keys(user).forEach(key => {
+    console.log(`${key}: ${user[key]}`);
+});
 
 console.log(user)
 // 1
