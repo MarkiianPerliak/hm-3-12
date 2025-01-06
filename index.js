@@ -1,3 +1,19 @@
+// 1
+const user = {
+    hobby: "FootBall",
+    premium: true,
+};
+user.mood = "happy";
+user.hobby = "skydiving";
+user.premium = false;
+
+for (const key of Object.keys(user)) {
+    console.log(`${key}: ${user[key]}`);
+  }
+
+console.log(user)
+// 1
+
 // 2
 function countProps(obj) {
     return Object.keys(obj).length;
@@ -6,7 +22,7 @@ function countProps(obj) {
 const car = {
     color: 'gray',
     brand: 'Bently',
-    model: 'MLS 520'
+    model: 'MLS 520',
 }
 
 const {color, brand, model} = car;
@@ -36,7 +52,7 @@ const team = {
     John: 25,
     Sarah: 15,
     Mike: 35,
-    Emma: 20
+    Emma: 20,
 };
 
 const { John, Sarah, Mike, Emma } = team;
@@ -58,7 +74,7 @@ function countTotalSalary(employees) {
 const employees = {
     Alice: 1000,
     Bob: 1500,
-    Charlie: 2000
+    Charlie: 2000,
 };
 
 const {Alice, Bob, Charlie} = employees;
@@ -84,13 +100,13 @@ function getAllPropValues(arr, prop) {
 const things = [
     { name: "Laptop", price: 1500, quantity: 4 },
     { name: "Phone", price: 800, quantity: 10 },
-    { name: "Tablet", price: 600, quantity: 6 }
+    { name: "Tablet", price: 600, quantity: 6 },
 ];
 
 const propertyValues = [
     getAllPropValues(things, "name"),
     getAllPropValues(things, "price"),
-    getAllPropValues(things, "quantity")
+    getAllPropValues(things, "quantity"),
 ];
 
 console.log(propertyValues);
@@ -113,13 +129,13 @@ function calculateTotalPrice(allProducts, productName) {
 const products = [
     { newName: "Laptop", newPrice: 1500, quantity: 4 },
     { newName: "Phone", newPrice: 800, quantity: 10 },
-    { newName: "Tablet", newPrice: 600, quantity: 6 }
+    { newName: "Tablet", newPrice: 600, quantity: 6 },
 ];
 
 const results = [
     calculateTotalPrice(products, "Laptop"),
     calculateTotalPrice(products, "Phone"),
-    calculateTotalPrice(products, "Tablet")
+    calculateTotalPrice(products, "Tablet"),
 ];
 
 console.log(results);
