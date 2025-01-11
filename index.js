@@ -143,5 +143,24 @@ console.log(results);
 // 6
 
 // 7
+// Напиши сценарій керування особистим кабінетом інтернет-банку. Є об'єкт account в якому необхідно реалізувати методи для роботи з балансом та історією транзакцій.
+// Закинути гроші на рахунок
+// Зняти гроші з рахунку
+// Замінити пароль
 
+
+const account = {
+    userName: "Markiian",
+    userEmail: "test@email.com.fi",
+    userPassword: "jdao&0k",
+    userAdress: "GReenStreet R8",
+    userPhone: "+380 97 673 4587",
+    userBalance: 100,
+
+    // changePassword (),
+
+    // replenishBalance (),
+
+    // withdrawBalance (),
+}
 // 7
