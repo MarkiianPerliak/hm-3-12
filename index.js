@@ -38,24 +38,25 @@ function findBestEmployee(team) {
     let bestEmployee = "";
     let maxTasks = 0;
 
-    for (const [name, tasks] of Object.entries(team)) {
+    Object.keys(team).forEach(name => {
+        const tasks = team[name];
         if (tasks > maxTasks) {
             bestEmployee = name;
             maxTasks = tasks;
         }
-    }
+    });
 
     return bestEmployee;
 }
 
 const team = {
-    John: 25,
-    Sarah: 15,
-    Mike: 35,
-    Emma: 20,
+    employee1: 25,
+    employee2: 15,
+    employee3: 35,
+    employee4: 20,
 };
 
-const { John, Sarah, Mike, Emma } = team;
+const {employee1, employee2, employee3, employee4} = team;
 
 console.log(findBestEmployee(team));
 // 3
@@ -64,24 +65,24 @@ console.log(findBestEmployee(team));
 function countTotalSalary(employees) {
     let totalSalary = 0;
 
-    for (const salary of Object.values(employees)) {
-        totalSalary += salary;
-    }
+    Object.keys(employees).forEach(key => {
+        totalSalary += employees[key];
+    });
 
     return totalSalary;
 }
 
 const employees = {
-    Alice: 1000,
-    Bob: 1500,
-    Charlie: 2000,
+    employee5: 1000,
+    employee6: 1500,
+    employee7: 2000,
 };
 
-const {Alice, Bob, Charlie} = employees;
+const {employee5, employee6, employee7} = employees;
 
 const theTotalSalary = countTotalSalary(employees);
 
-console.log(theTotalSalary)
+console.log(theTotalSalary);
 // 4
 
 // 5
@@ -98,9 +99,9 @@ function getAllPropValues(arr, prop) {
 }
 
 const things = [
-    { name: "Laptop", price: 1500, quantity: 4 },
-    { name: "Phone", price: 800, quantity: 10 },
-    { name: "Tablet", price: 600, quantity: 6 },
+    {name: "Laptop", price: 1500, quantity: 4},
+    {name: "Phone", price: 800, quantity: 10},
+    {name: "Tablet", price: 600, quantity: 6},
 ];
 
 const propertyValues = [
@@ -127,9 +128,9 @@ function calculateTotalPrice(allProducts, productName) {
 }
 
 const products = [
-    { newName: "Laptop", newPrice: 1500, quantity: 4 },
-    { newName: "Phone", newPrice: 800, quantity: 10 },
-    { newName: "Tablet", newPrice: 600, quantity: 6 },
+    {newName: "Laptop", newPrice: 1500, quantity: 4},
+    {newName: "Phone", newPrice: 800, quantity: 10},
+    {newName: "Tablet", newPrice: 600, quantity: 6},
 ];
 
 const results = [
