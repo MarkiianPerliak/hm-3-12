@@ -148,7 +148,6 @@ console.log(results);
 // Зняти гроші з рахунку
 // Замінити пароль
 
-
 const account = {
     userName: "Markiian",
     userEmail: "test@email.com.fi",
@@ -157,10 +156,64 @@ const account = {
     userPhone: "+380 97 673 4587",
     userBalance: 100,
 
-    // changePassword (),
+    changeLogin(newLogin) {
+        this.userPassword = newLogin;
+        return this.userPassword;
+    },
 
-    // replenishBalance (),
+    replenishBalance(amount) {
+        if (amount > 0) {
+            this.userBalance += amount;
+            return `Balance successfully replenished. Current balance: $${this.userBalance}`;
+        } else {
+            return "Invalid amount. Please enter a positive number.";
+        }
+    },
 
-    // withdrawBalance (),
+    withdrawBalance(amount) {
+        if (amount > 0 && amount <= this.userBalance) {
+            this.userBalance -= amount;
+            return `Withdrawal successful. Remaining balance: $${this.userBalance}`;
+        } else if (amount > this.userBalance) {
+            return "Insufficient funds. Transaction denied.";
+        } else {
+            return "Invalid amount. Please enter a positive number.";
+        }
+    }
+};
+
+const userInfoConfirm = confirm("Would you like to see your account info?");
+
+if (userInfoConfirm === true) {
+    console.log(`Name - ${account.userName}, Email - ${account.userEmail}, Password - ${account.userPassword}, Adress - ${account.userAdress}, Phone - ${account.userPhone}, Balance -${account.userBalance}`);
+}
+
+const passConfirm = confirm("Would you like to change your password?");
+if (passConfirm === true) {
+    const passPrompt = prompt("What password would you like to have?");
+    const newLoginForUser = account.changeLogin(`${passPrompt}`);
+    console.log(`Password successfully changed to: ${newLoginForUser}`);
+}
+
+const balanceAction = prompt(
+    "Would you like to manage your balance? Type 'replenish' to add money or 'withdraw' to take money."
+);
+
+if (balanceAction === "replenish") {
+    const amount = parseFloat(prompt("Enter the amount to replenish:"));
+    const result = account.replenishBalance(amount);
+    console.log(result);
+} else if (balanceAction === "withdraw") {
+    const amount = parseFloat(prompt("Enter the amount to withdraw:"));
+    const result = account.withdrawBalance(amount);
+    console.log(result);
+} else {
+    console.log("No balance action selected or invalid input.");
+}
+
+const userInfoConfirmNew = confirm("Would you like to see your account info now?");
+
+if (userInfoConfirmNew === true) {
+    console.log(`Name - ${account.userName}, Email - ${account.userEmail}, Password - ${account.userPassword}, Adress - ${account.userAdress}, Phone - ${account.userPhone}, Balance -${account.userBalance}`);
 }
 // 7
